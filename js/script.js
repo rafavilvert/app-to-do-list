@@ -1,5 +1,3 @@
-// Implementar array de excluidos ====================================================
-
 // Funcionar adicionar itens na lista
 var btnAdd = document.querySelector("#btn-add")
 var inputListaTarefa = document.querySelector("#inputListaTarefa")
@@ -11,11 +9,12 @@ var itemChecked = JSON.parse(localStorage.getItem("item_checked")) || []
 //var createElement = document.createElement("li")
 
 
-
+// Botão adicionar tarefas
 btnAdd.addEventListener("click", function(event) {
     adicionarTarefa()
 })
 
+// Carrega a lista salva no LocalStorage
 carregarLista()
 
 // Carregar lista quando fechar ou atualizar o browser
@@ -35,6 +34,7 @@ function carregarLista() {
     }
 }
 
+// Verifica se o checkbox está checked e faz o line-through no conteúdo
 function riscar(pos) {
     var createElement = document.createElement("li")
     createElement.innerHTML = ''
@@ -47,3 +47,29 @@ function riscar(pos) {
     salvarLista()
 }
 
+// Adiciona novas tarefas digitadas pelo usuário
+function adicionarTarefa(){
+    listaDeItens.push(inputListaTarefa.value)
+    itemChecked.push('check')
+    inputListaTarefa.value = ''
+    inputListaTarefa.focus()
+    carregarLista()
+    salvarLista()
+
+}
+
+// Deletar tarefas
+function excluir(pos) {
+    var createElement = document.createElement("li")
+    createElement.innerHTML = ''
+    listaDeItens.splice(pos, 1)
+    itemChecked.splice(pos, 1)
+    carregarLista()
+    salvarLista()
+}
+
+// Salvar lista no LocalStorage
+function salvarLista() {
+    localStorage.setItem("lista_tarefas", JSON.stringify(listaDeItens))
+    localStorage.setItem("item_checked", JSON.stringify(itemChecked))
+}
