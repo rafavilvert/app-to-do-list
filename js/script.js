@@ -24,9 +24,9 @@ function carregarLista() {
         var createElement = document.createElement("li")
         var posicao = listaDeItens.indexOf(item)
         createElement.innerHTML = `${item}`
-            + `<button type="button" class="btn-delete" onclick="excluir(${posicao})">`
-            + `<img src="images/btn-fechar.png" alt="botão fechar"></button>`
-            + `<input type="checkbox" class="check" onclick="riscar(${posicao})" ${itemChecked[posicao]} >`
+            + `<div><button type="button" class="btn-delete" onclick="excluir(${posicao})">`
+            + `<img src="images/trash-icon.png" alt="botão fechar"></button>`
+            + `<input type="checkbox" class="check" onclick="riscar(${posicao})" ${itemChecked[posicao]} ><div>`
 
         createElement.value = item
         createElement.className = itemChecked[posicao]

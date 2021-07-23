@@ -5,14 +5,101 @@
   list-style: none;
 }
 
-/* When clicked on, add a background color and strike out text */
-ul li.checked {
-    text-decoration: line-through;
-  }
-  
+body {
+  font-family: 'Times New Roman', Times, serif;
+  background-color: rgba(20, 14, 14, 0.384);
+}
+
+/* Container
+============================================================== */
 #container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+#container section {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 20px;
+  padding: 20px 5px 20px 5px;
+  margin-top: 100px;
+  width: 50vw;
+}
+
+/* When clicked on, add a background color and strike out text 
+============================================================== */
+ul li {
+  margin-left: 5px;
+  margin-bottom: 3px;
+  background-color: rgba(128, 128, 128, 0.425);
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 5px;
+}
+
+ul li.checked {
+    text-decoration: line-through;
+    background-color: rgba(236, 0, 0, 0.466);
+  }
+
+/* Input para inserir intens na lista
+============================================================== */
+#inputListaTarefa {
+  height: 25px;
+  width: 30vw;
+  border-radius: 20px ;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  padding-left: 5px;
+  background-color: rgba(151, 103, 145, 0.4);
+  color: #fff;
+  border: 0;
+  outline: none;
+  box-shadow: none;
+}
+
+#inputListaTarefa:focus {
+  background-color: rgba(194, 11, 11, 0.2);
+  box-shadow: 0 0 10px;
+}
+
+/* Botão para inserir intens na lista
+============================================================== */
+#btn-add {
+  border: 0;
+  font-size: 1.2em;
+  border-radius: 50%;
+  padding: 1px 6px 1px 6px;
+  color: #fff;
+  background-color: #000;
+}
+
+#btn-add:hover {
+  background-color: gray;
+  cursor: pointer;
+}
+
+/* UL id adicionarItem
+============================================================== */
+#adicionarItem li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+  
+/* Botão excluir itens da lista
+============================================================== */
+.btn-delete {
+  border: 0px;
+  margin-bottom: none;
+  padding-bottom: 0%;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.btn-delete:hover {
+  background-color: rgba(194, 4, 4, 0.418);
+}
