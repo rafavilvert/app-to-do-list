@@ -3,10 +3,10 @@
   padding: 0;
   box-sizing: border-box;
   list-style: none;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 body {
-  font-family: 'Times New Roman', Times, serif;
   background-color: rgba(20, 14, 14, 0.384);
 }
 
@@ -37,9 +37,17 @@ ul li {
   border-bottom-right-radius: 5px;
 }
 
+ul li.check:hover {
+  background-color: rgba(124, 122, 122, 0.192);
+}
+
 ul li.checked {
     text-decoration: line-through;
     background-color: rgba(236, 0, 0, 0.466);
+  }
+
+  ul li.checked:hover {
+    background-color: rgba(236, 0, 0, 0.329);
   }
 
 /* Input para inserir intens na lista
@@ -85,11 +93,9 @@ ul li.checked {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: opacity 5s;
 }
 
-
-
-  
 /* Botão excluir itens da lista
 ============================================================== */
 .btn-delete {
