@@ -49,12 +49,18 @@ function riscar(pos) {
 
 // Adiciona novas tarefas digitadas pelo usuário
 function adicionarTarefa(){
-    listaDeItens.push(inputListaTarefa.value)
-    itemChecked.push('check')
-    inputListaTarefa.value = ''
-    inputListaTarefa.focus()
-    carregarLista()
-    salvarLista()
+    var inputText = document.getElementById("inputListaTarefa")
+    if (inputText.value != '') {
+        listaDeItens.push(inputListaTarefa.value)
+        itemChecked.push('check')
+        inputListaTarefa.value = ''
+        inputListaTarefa.focus()
+        carregarLista()
+        salvarLista()       
+    }else {
+        alert("Digite uma nova tarefa")
+    }
+
 
 }
 
