@@ -98,6 +98,19 @@ function excluir(pos) {
 
 }
 
+function excluirListaCompleta() {
+    var confirmaExcluirTudo = confirm("Tem certeza que gostaria de excluir todos os itens da lista?")
+    if (confirmaExcluirTudo == true) {
+        listaDeItens = []
+        itemChecked = []
+        salvarLista()
+        carregarLista()
+        alert("Itens da lista foram excluídos com sucesso!")
+    }else {
+        alert("Itens da lista foram mantidos!")
+    }
+}
+
 // Salvar lista no LocalStorage
 function salvarLista() {
     localStorage.setItem("lista_tarefas", JSON.stringify(listaDeItens))
