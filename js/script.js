@@ -3,6 +3,7 @@ var btnAdd = document.querySelector("#btn-add")
 var inputListaTarefa = document.querySelector("#inputListaTarefa")
 var adicionarItem = document.querySelector("#adicionarItem")
 var btnSalvar = document.querySelector("#btn-salvar")
+var btnDeleteAll = document.getElementById("btn-delete-all") 
 
 var listaDeItens = JSON.parse(localStorage.getItem("lista_tarefas")) || []
 var itemChecked = JSON.parse(localStorage.getItem("item_checked")) || []
@@ -11,6 +12,10 @@ var itemChecked = JSON.parse(localStorage.getItem("item_checked")) || []
 // Botão adicionar tarefas
 btnAdd.addEventListener("click", function (event) {
     adicionarTarefa()
+})
+
+btnDeleteAll.addEventListener("click", ()=> {
+    excluirListaCompleta()
 })
 
 // Carrega a lista salva no LocalStorage
