@@ -1,3 +1,18 @@
+/* Animações
+============================================================== */
+@keyframes animacao-adicionar {
+  from {
+    margin-left: 5px;
+    margin-bottom: 3px;
+  }
+
+  to {
+    margin: 5px 5px 0 5px;
+  }
+}
+
+/* Reset css
+============================================================== */
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +22,10 @@
 }
 
 body {
-  background-color: rgba(20, 14, 14, 0.384);
+  background: rgba(54, 125, 201, 0.986);
+  background: linear-gradient(0deg, rgba(47,139,236,1) 40%, rgba(210,83,154,1) 89%);
+  font-size: 16px;
+  height: 100vh;
 }
 
 /* Container
@@ -19,7 +37,7 @@ body {
 }
 
 #container section {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.226);
   border-top-left-radius: 50px;
   border-bottom-right-radius: 20px;
   padding: 20px 5px 20px 5px;
@@ -27,14 +45,45 @@ body {
   width: 50vw;
 }
 
+/* Cabeçalho
+============================================================== */
+header {
+  border-top-left-radius: 50px;
+  margin-bottom: 10px;
+}
+
+/* Título
+============================================================== */
+h1 {
+  color: #ffff;
+  font-size: 4rem;
+  text-align: center;
+  margin: 10px auto 15px auto;
+}
+
+/* Input
+============================================================== */
+input::placeholder {
+  font-size: 1rem;
+  color: #ffff;
+}
+
 /* When clicked on, add a background color and strike out text 
 ============================================================== */
+ul {
+  border-bottom-right-radius: 50px;
+}
+
 ul li {
-  margin-left: 5px;
-  margin-bottom: 3px;
-  background-color: rgba(128, 128, 128, 0.425);
+  color: #fff;
+  margin: 5px 10px;
+  background-color: rgba(255, 255, 255, 0.178);
   border-top-left-radius: 10px;
   border-bottom-right-radius: 5px;
+  font-size: 2rem;
+  transition: all 1s linear;
+  animation-name: animacao-adicionar;
+  animation-duration: 1s;
 }
 
 ul li.check:hover {
@@ -42,48 +91,61 @@ ul li.check:hover {
 }
 
 ul li.checked {
-    text-decoration: line-through;
-    background-color: rgba(236, 0, 0, 0.466);
+  color: rgb(138, 2, 2);
+  text-decoration: line-through;
+  background-color: rgba(236, 0, 0, 0.466);
   }
 
-  ul li.checked:hover {
-    background-color: rgba(236, 0, 0, 0.329);
-  }
+ul li.checked:hover {
+  background-color: rgba(236, 0, 0, 0.329);
+}
+
+.checked {
+  animation: animacao-adicionar 10s 0s 0 alternate;
+}
 
 /* Input para inserir intens na lista
 ============================================================== */
 #inputListaTarefa {
-  height: 25px;
+  height: 2rem;
   width: 30vw;
   border-radius: 20px ;
   margin-left: 5px;
-  margin-bottom: 5px;
-  padding-left: 5px;
-  background-color: rgba(151, 103, 145, 0.4);
+  margin-bottom: 10px;
+  padding-left: 15px;
   color: #fff;
+  font-size: 54px;
+  background-color: rgba(47,139,236,1);
   border: 0;
   outline: none;
   box-shadow: none;
+  font-size: 1rem;
+  transition: all 1s linear;
 }
 
 #inputListaTarefa:focus {
-  background-color: rgba(194, 11, 11, 0.2);
+  background-color: rgba(210,83,154,1);
+  font-size: 1.5rem;
   box-shadow: 0 0 10px;
 }
 
 /* Botão para inserir intens na lista
 ============================================================== */
 #btn-add {
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 4px 12px 4px 12px;
   border: 0;
-  font-size: 1.2em;
   border-radius: 50%;
-  padding: 1px 6px 1px 6px;
   color: #fff;
-  background-color: #000;
+  box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
 }
 
 #btn-add:hover {
-  background-color: gray;
+  box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+  color: #000;
   cursor: pointer;
 }
 
@@ -93,7 +155,9 @@ ul li.checked {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom-right-radius: 20px;
   transition: opacity 5s;
+  padding: 0 0.5rem;
 }
 
 /* Botão excluir itens da lista
