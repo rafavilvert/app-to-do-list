@@ -48,6 +48,7 @@ body {
 /* Cabeçalho
 ============================================================== */
 header {
+  background: linear-gradient(0deg, rgba(245, 245, 245, 0) 40%, rgba(238, 27, 210, 0.295) 89%);
   border-top-left-radius: 50px;
   margin-bottom: 10px;
 }
@@ -66,6 +67,11 @@ h1 {
 input::placeholder {
   font-size: 1rem;
   color: #ffff;
+}
+
+input[type="checkbox"]::before {
+  border: solid 2px;
+  vertical-align: bottom;
 }
 
 /* When clicked on, add a background color and strike out text 
@@ -98,6 +104,10 @@ ul li.checked {
 
 ul li.checked:hover {
   background-color: rgba(236, 0, 0, 0.329);
+}
+
+.check {
+  margin-bottom: 7px;
 }
 
 .checked {

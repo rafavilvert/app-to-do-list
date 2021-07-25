@@ -6,11 +6,10 @@ var btnSalvar = document.querySelector("#btn-salvar")
 
 var listaDeItens = JSON.parse(localStorage.getItem("lista_tarefas")) || []
 var itemChecked = JSON.parse(localStorage.getItem("item_checked")) || []
-//var createElement = document.createElement("li")
 
 
 // Botão adicionar tarefas
-btnAdd.addEventListener("click", function(event) {
+btnAdd.addEventListener("click", function (event) {
     adicionarTarefa()
 })
 
@@ -26,7 +25,7 @@ function carregarLista() {
         createElement.innerHTML = `${item}`
             + `<div><button type="button" class="btn-delete" onclick="excluir(${posicao})">`
             + `<img src="images/trash-icon.png" alt="botão fechar"></button>`
-            + `<input type="checkbox" class="check" onclick="riscar(${posicao})" ${itemChecked[posicao]} ><div>`
+            + `<input type="checkbox" id="inputCheckbox" class="check" onclick="riscar(${posicao})" ${itemChecked[posicao]} ><div>`
 
         createElement.value = item
         createElement.className = itemChecked[posicao]
@@ -48,30 +47,55 @@ function riscar(pos) {
 }
 
 // Adiciona novas tarefas digitadas pelo usuário
-function adicionarTarefa(){
+function adicionarTarefa() {
     var inputText = document.getElementById("inputListaTarefa")
-    if (inputText.value != '') {
+    for (let i = 0; i < listaDeItens.length; i++) {
+        if (listaDeItens[i] == inputText.value) {
+            alert("TAREFA JÁ EXISTENTE")
+            var erro = "erro"
+            break
+        } else {
+            erro = "ok"
+        }
+    }
+
+    if (inputText.value != '' && erro !== "erro") {
         listaDeItens.push(inputListaTarefa.value)
         itemChecked.push('check')
         inputListaTarefa.value = ''
         inputListaTarefa.focus()
         carregarLista()
-        salvarLista()       
-    }else {
-        alert("Digite uma nova tarefa")
+        salvarLista()
+    } else {
+        alert("Digite uma nova tarefa: ")
+        inputListaTarefa.value = ''
+        inputListaTarefa.focus()
     }
-
-
 }
 
 // Deletar tarefas
 function excluir(pos) {
-    var createElement = document.createElement("li")
-    createElement.innerHTML = ''
-    listaDeItens.splice(pos, 1)
-    itemChecked.splice(pos, 1)
-    carregarLista()
-    salvarLista()
+    var confirmarExclusao = false
+
+    while (confirmarExclusao == false) {
+        confirmarExclusao = confirm("Tem certeza que deseja excluir essa tarefa? ")
+
+        if (confirmarExclusao == true) {
+            var createElement = document.createElement("li")
+            createElement.innerHTML = ''
+            listaDeItens.splice(pos, 1)
+            itemChecked.splice(pos, 1)
+            carregarLista()
+            salvarLista()
+            alert("Tarefa excluida com sucesso!")
+
+        } else {
+            alert("Tarefa não deletada")
+            confirmarExclusao = true
+
+        }
+    }
+
 }
 
 // Salvar lista no LocalStorage
